@@ -10,7 +10,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Component\Translation\DataCollectorTranslator;
 
 use Gregwar\CaptchaBundle\Validator\CaptchaValidator;
 use Gregwar\CaptchaBundle\Generator\CaptchaGenerator;
@@ -51,7 +51,7 @@ class CaptchaType extends AbstractType
      * @param TranslatorInterface $translator
      * @param array               $options
      */
-    public function __construct(SessionInterface $session, CaptchaGenerator $generator, TranslatorInterface $translator, $options)
+    public function __construct(SessionInterface $session, CaptchaGenerator $generator, DataCollectorTranslator $translator, $options)
     {
         $this->session      = $session;
         $this->generator    = $generator;
