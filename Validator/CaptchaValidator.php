@@ -5,7 +5,7 @@ namespace Gregwar\CaptchaBundle\Validator;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Translation\DataCollectorTranslator;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Captcha validator
@@ -54,7 +54,7 @@ class CaptchaValidator
      * @param string              $bypassCode
      * @param int                 $humanity
      */
-    public function __construct(DataCollectorTranslator $translator, SessionInterface $session, $key, $invalidMessage, $bypassCode, $humanity)
+    public function __construct(TranslatorInterface $translator, SessionInterface $session, $key, $invalidMessage, $bypassCode, $humanity)
     {
         $this->translator       = $translator;
         $this->session          = $session;
